@@ -1,18 +1,23 @@
-class productPage {
-    visit() {
-      cy.visit('/products')
-    }
-  
-    selectCategory(category) {
-      cy.get('.category-list').contains(category).click()
-    }
-  
-    selectProduct(productName) {
-      cy.get('.product-list').contains(productName).click()
-    }
-  
-    addProductToCart() {
-      cy.get('button.add-to-cart').click()
-    }
+// productPage.js
+class ProductPage {
+  visit() {
+    cy.visit('/products'); // Adjust the URL to your products page
   }
-  
+
+  selectCategory(category) {
+    cy.get(`a[href="#${category}"]`).click();    }
+
+    selectSubcategory(subcategory) {
+      cy.contains(subcategory).click(); // Adjust if necessary
+    }
+  selectProduct(productName) {
+    cy.contains(productName).click(); // Adjust if necessary
+  }
+  getPrice() {
+    return cy.get('div[class="product-information"] span span');
+    }
+  clickOn_Addtocart(productPosition) {
+    cy.get(`a[href="${productPosition}"]`).click();    }
+}
+
+export const productPage = new ProductPage();

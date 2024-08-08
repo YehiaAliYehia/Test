@@ -1,13 +1,19 @@
 [
+    
     {
-      "name": "Product 1",
-      "category": "Category 1",
-      "details": "Details about Product 1"
+      "category": "Women",
+      "subcategory": "Tops",
+      "name": "Blue Top",
+      "productPosition":"/product_details/1",
+      "price":"500"
+
     },
     {
-      "name": "Product 2",
-      "category": "Category 2",
-      "details": "Details about Product 2"
+      "category": "Men",
+      "subcategory": "Jeans",
+      "name": "Jeans",
+      "productPosition":"/product_details/33",
+       "price":"799"
     }
   ]
   
