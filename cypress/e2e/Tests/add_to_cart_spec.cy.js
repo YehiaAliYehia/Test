@@ -1,6 +1,6 @@
 import { productPage } from '../../pages/productPage';
 
-describe('Product Browsing', () => {
+describe('adding products to the cart', () => {
   const credentials = require('../../fixtures/credentials.json');
   const products = require('../../fixtures/products.json');
 

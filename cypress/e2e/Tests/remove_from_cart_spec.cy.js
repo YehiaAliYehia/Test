@@ -2,7 +2,7 @@ import { productPage } from '../../pages/productPage';
 import { cartPage } from '../../pages/cartPage';
 
 
-describe('Product Browsing', () => {
+describe('Remove from cart', () => {
   const credentials = require('../../fixtures/credentials.json');
   const products = require('../../fixtures/products.json');
 

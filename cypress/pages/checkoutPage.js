@@ -1,25 +1,49 @@
 class CheckoutPage {
     visit() {
-      cy.visit('/checkout')
+      cy.visit('/payment')
     }
   
-    fillShippingDetails(address) {
-      cy.get('#shipping-address').type(address)
+    fillcardOwner() {
+      cy.get('input[data-qa="name-on-card"]').type('Test')
     }
   
-    selectPaymentMethod(method) {
-      cy.get('#payment-method').select(method)
+    fillCardNumber() {
+      cy.get('input[data-qa="card-number"]').type('42424242424242')
     }
   
+    fillCardCVV() {
+      cy.get('input[data-qa="cvc"]').type('100')
+    }
+
+    fillExpiry() {
+      cy.get('input[data-qa="expiry-month"]').type('05')
+      cy.get('input[data-qa="expiry-year"]').type('2026')
+
+    }
+
     completePurchase() {
-      cy.get('button.complete-purchase').click()
+      cy.get('button[data-qa="pay-button"]').click()
     }
   
-    checkout(shippingDetails, paymentMethod) {
+    checkoutPayment() {
       this.visit()
-      this.fillShippingDetails(shippingDetails.address)
-      this.selectPaymentMethod(paymentMethod)
+      this.fillcardOwner()
+      this.fillCardNumber()
+      this.fillCardCVV()
+      this.fillExpiry()
       this.completePurchase()
+    }
+
+    Fill_checkout_form() {
+      cy.get('textarea[class="form-control"]').type('Test Test');
+     }
+
+     placeOrder() {
+      cy.get('a.btn.btn-default.check_out').click()
+    }
+
+    get_order_success_message(){
+      return cy.get('b').contains('Order Placed!');
     }
   }
   

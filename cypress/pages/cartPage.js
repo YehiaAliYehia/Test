@@ -9,7 +9,7 @@ class CartPage {
     cy.get('td.cart_delete').each(($el) => {
         cy.wrap($el).click();
       });
-      
+
     // function Retry_deleting_products (attempts = 0) {
     //     if (attempts > 6) throw 'Failed to delete product'
     
@@ -29,6 +29,9 @@ class CartPage {
     return cy.get('b').contains('Cart is empty!');  
    }
 
+Proceed_to_checkout_click() {
+    cy.get('a.btn.btn-default.check_out').click();
+    }
 
  
 
