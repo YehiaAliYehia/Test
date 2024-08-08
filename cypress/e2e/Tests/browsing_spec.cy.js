@@ -22,7 +22,7 @@ describe('Product Browsing', () => {
         productPage.visit();
         productPage.selectCategory(product.category);  // Use product.category
         productPage.selectSubcategory(product.subcategory);
-        productPage.clickOn_Addtocart(product.productPosition)
+        productPage.clickOn_Viewproduct(product.productPosition)
        // productPage.selectProduct(product.name);
         cy.get('.product-information').should('be.visible');
         productPage.getPrice().should('contain', `Rs. ${product.price}`);
