@@ -34,9 +34,8 @@ jobs:
       - name: Install Cypress
         run: npx cypress install
 
-      - name: Run Cypress tests in parallel
-        run: npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }} --parallel --ci-build-id ${{ github.run_id }} --headed --no-exit
-
+      - name: Run Cypress tests
+        run: npx cypress run
 
       - name: Upload Cypress videos
         if: failure()
