@@ -18,6 +18,7 @@ jobs:
     strategy:
       matrix:
         node-version: [20]
+        browser: [chrome, firefox] # Add browsers to the matrix
 
     steps:
       - name: Checkout repository
@@ -34,20 +35,19 @@ jobs:
       - name: Install Cypress
         run: npx cypress install
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Run Cypress tests in ${{ matrix.browser }}
+        run: npx cypress run --browser ${{ matrix.browser }}
 
       - name: Upload Cypress videos
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-         name: cypress-videos
+         name: cypress-videos-${{ matrix.browser }}
          path: cypress/videos
 
       - name: Upload Cypress screenshots
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-         name: cypress-screenshots
+         name: cypress-screenshots-${{ matrix.browser }}
          path: cypress/screenshots
-
